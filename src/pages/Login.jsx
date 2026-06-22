@@ -15,7 +15,7 @@ function Login() {
     if (!form.email || !form.password)
       return setError('All fields are required')
     try {
-      const res = await axios.post('${BASE_URL}/api/auth/login', form)
+      const res = await axios.post(`${BASE_URL}/api/auth/login`, form)
       localStorage.setItem('token', res.data.token)
       localStorage.setItem('username', res.data.username)
       navigate('/rooms')

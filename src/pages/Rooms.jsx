@@ -19,7 +19,7 @@ function Rooms() {
 
   const fetchRooms = async () => {
     try {
-      const res = await axios.get('${BASE_URL}/api/rooms')
+      const res = await axios.get(`${BASE_URL}/api/rooms`)
       setRooms(res.data)
     } catch (err) {
       console.error('Failed to fetch rooms')
@@ -29,7 +29,7 @@ function Rooms() {
   const createRoom = async () => {
     if (!newRoom.trim()) return alert('Enter a room name')
     try {
-      await axios.post('${BASE_URL}/api/rooms', {
+      await axios.post(`${BASE_URL}/api/rooms`, {
         name: newRoom.trim(),
         username,
         password: roomPassword,
@@ -52,7 +52,7 @@ function Rooms() {
 
   const verifyAndJoin = async () => {
     try {
-      await axios.post('${BASE_URL}/api/rooms/verify', {
+      await axios.post(`${BASE_URL}/api/rooms/verify`, {
         name: selectedRoom.name,
         password: joinPasswordInput,
       })
